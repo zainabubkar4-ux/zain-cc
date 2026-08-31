@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZAIN CC</title>
+  <meta name="description" content="ZAIN CC - latest editing resources and monthly updates by @legend_ffx2" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#050507;
+      --panel:#0d0d14;
+      --text:#ffffff;
+      --muted:#9a9aaa;
+      --purple:#7c5cff;
+      --blue:#2f8cff;
+      --cyan:#44d9ff;
+      --border:rgba(255,255,255,.10);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      min-height:100vh;
+      font-family:"Inter",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(124,92,255,.18), transparent 32%),
+        radial-gradient(circle at 85% 25%, rgba(47,140,255,.15), transparent 30%),
+        radial-gradient(circle at 50% 85%, rgba(68,217,255,.07), transparent 30%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-2;
+      background-image:
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size:56px 56px;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button{
+      font:inherit;
+    }
+
+    .container{
+      width:min(1180px, calc(100% - 32px));
+      margin-inline:auto;
+    }
+
+    #cursorGlow{
+      position:fixed;
+      width:360px;
+      height:360px;
+      border-radius:50%;
+      pointer-events:none;
+      z-index:-1;
+      transform:translate(-50%,-50%);
+      background:radial-gradient(circle, rgba(124,92,255,.16), transparent 70%);
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:1000;
+      transition:.3s ease;
+    }
+
+    header.scrolled{
+      background:rgba(5,5,7,.80);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+
+    .nav{
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .logo{
+      font-family:"Space Grotesk",sans-serif;
+      font-size:34px;
+      font-weight:700;
+      letter-spacing:-2px;
+      white-space:nowrap;
+    }
+
+    .logo span{
+      background:linear-gradient(90deg,#a58cff,#4bdcff);
+      background-clip:text;
+      -webkit-background-clip:text;
+      color:transparent;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:28px;
+    }
+
+    .nav-links a{
+      color:#b7b7c4;
+      font-size:14px;
+      font-weight:700;
+      transition:.25s ease;
+    }
+
+    .nav-links a:hover{
+      color:#fff;
+    }
+
+    .nav-download{
+      color:#fff !important;
+      padding:12px 19px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--purple),var(--blue));
+      box-shadow:0 12px 35px rgba(124,92,255,.30);
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:130px 0 80px;
+      position:relative;
+    }
+
+    .hero-watermark{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      font-family:"Space Grotesk",sans-serif;
+      font-size:26vw;
+      font-weight:700;
+      letter-spacing:-.08em;
+      color:rgba(255,255,255,.018);
+      user-select:none;
+      z-index:-1;
+      white-space:nowrap;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      align-items:center;
+      gap:70px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:8px 14px;
+      border:1px solid rgba(165,140,255,.25);
+      background:rgba(124,92,255,.07);
+      border-radius:999px;
+      color:#d1c7ff;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#6cff9a;
+      box-shadow:0 0 15px #6cff9a;
+      animation:pulse 1.5s infinite;
+    }
+
+    @keyframes pulse{
+      50%{ transform:scale(1.35); }
+    }
+
+    .hero h1{
+      margin-top:24px;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(60px,8vw,116px);
+      line-height:.88;
+      letter-spacing:-.07em;
+    }
+
+    .gradient-text{
+      background:linear-gradient(90deg,#a58cff,#43d8ff,#ff66df,#a58cff);
+      background-size:250% auto;
+      background-clip:text;
+      -webkit-background-clip:text;
+      color:transparent;
+      -webkit-text-fill-color:transparent;
+      animation:gradientMove 5s linear infinite;
+    }
+
+    @keyframes gradientMove{
+      to{ background-position:250% center; }
+    }
+
+    .hero p{
+      margin-top:26px;
+      max-width:620px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.75;
+    }
+
+    .hero p strong{
+      color:#fff;
+    }
+
+    .buttons{
+      margin-top:34px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      min-height:58px;
+      padding:0 26px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border-radius:16px;
+      font-size:14px;
+      font-weight:900;
+      transition:.3s ease;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--purple),var(--blue));
+      box-shadow:0 16px 48px rgba(124,92,255,.32);
+    }
+
+    .btn-secondary{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.035);
+    }
+
+    .btn:hover{
+      transform:translateY(-4px);
+    }
+
+    .hero-art{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      min-height:460px;
+    }
+
+    .orbit{
+      position:absolute;
+      width:450px;
+      height:450px;
+      border-radius:50%;
+      border:1px solid rgba(124,92,255,.15);
+      animation:spin 18s linear infinite;
+    }
+
+    .orbit::before{
+      content:"";
+      position:absolute;
+      width:11px;
+      height:11px;
+      border-radius:50%;
+      background:#a58cff;
+      box-shadow:0 0 25px #7c5cff;
+      top:55px;
+      left:80px;
+    }
+
+    .orbit.small{
+      width:340px;
+      height:340px;
+      border-color:rgba(68,217,255,.15);
+      animation-direction:reverse;
+      animation-duration:12s;
+    }
+
+    .orbit.small::before{
+      top:auto;
+      left:auto;
+      right:55px;
+      bottom:42px;
+      background:#44d9ff;
+      box-shadow:0 0 25px #44d9ff;
+    }
+
+    @keyframes spin{
+      to{ transform:rotate(360deg); }
+    }
+
+    .logo-card{
+      width:350px;
+      height:350px;
+      border-radius:40px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      backdrop-filter:blur(18px);
+      box-shadow:0 40px 100px rgba(0,0,0,.48), 0 0 80px rgba(124,92,255,.10);
+      animation:floatCard 5s ease-in-out infinite;
+    }
+
+    .logo-card::before{
+      content:"";
+      position:absolute;
+      width:250px;
+      height:250px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(124,92,255,.55),transparent 68%);
+      filter:blur(40px);
+    }
+
+    @keyframes floatCard{
+      50%{ transform:translateY(-14px) rotate(1deg); }
+    }
+
+    .big-z{
+      position:relative;
+      z-index:1;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:165px;
+      font-weight:700;
+      letter-spacing:-18px;
+      text-shadow:0 0 50px rgba(124,92,255,.6);
+    }
+
+    .big-z::after{
+      content:"CC";
+      position:absolute;
+      right:-55px;
+      bottom:16px;
+      padding:8px 12px;
+      border-radius:11px;
+      font-family:"Inter",sans-serif;
+      font-size:18px;
+      letter-spacing:0;
+      background:linear-gradient(135deg,var(--purple),var(--blue));
+    }
+
+    section{
+      padding:105px 0;
+    }
+
+    .section-label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.035);
+      color:#d1c7ff;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+    }
+
+    .section-title{
+      margin-top:17px;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(42px,6vw,72px);
+      line-height:.95;
+      letter-spacing:-.05em;
+    }
+
+    .section-text{
+      margin-top:18px;
+      max-width:650px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .download-card{
+      margin-top:48px;
+      padding:42px;
+      display:grid;
+      grid-template-columns:1fr 270px;
+      gap:40px;
+      border-radius:30px;
+      border:1px solid var(--border);
+      background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+      position:relative;
+      overflow:hidden;
+    }
+
+    .download-card::after{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:420px;
+      right:-190px;
+      top:-210px;
+      border-radius:50%;
+      background:var(--purple);
+      filter:blur(130px);
+      opacity:.2;
+    }
+
+    .status{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      color:#78ffa0;
+      font-size:12px;
+      font-weight:900;
+    }
+
+    .download-card h3{
+      margin-top:14px;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(38px,5vw,58px);
+      letter-spacing:-.05em;
+    }
+
+    .tags{
+      margin-top:19px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tag{
+      padding:8px 13px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:#b4b4c0;
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .download-desc{
+      margin-top:22px;
+      max-width:640px;
+      color:var(--muted);
+      line-height:1.75;
+    }
+
+    .download-side{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .download-side small{
+      color:#81818e;
+      font-weight:800;
+      letter-spacing:.08em;
+    }
+
+    .version{
+      margin:5px 0 18px;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:34px;
+      font-weight:700;
+    }
+
+    .download-button{
+      width:100%;
+      height:64px;
+      border:0;
+      border-radius:17px;
+      color:white;
+      font-size:14px;
+      font-weight:900;
+      cursor:pointer;
+      background:linear-gradient(135deg,var(--purple),var(--blue));
+      box-shadow:0 18px 50px rgba(124,92,255,.34);
+      transition:.3s ease;
+    }
+
+    .download-button:hover{
+      transform:translateY(-4px);
+    }
+
+    .free{
+      margin-top:12px;
+      text-align:center;
+      color:#747482;
+      font-size:11px;
+      font-weight:700;
+    }
+
+    .grid-2{
+      margin-top:48px;
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:20px;
+    }
+
+    .card{
+      padding:30px;
+      border-radius:22px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.025);
+    }
+
+    .card h3{
+      margin-top:15px;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:30px;
+    }
+
+    .card p{
+      margin-top:12px;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .changes{
+      margin-top:20px;
+      display:grid;
+      gap:12px;
+    }
+
+    .change{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:14px;
+      border-radius:13px;
+      background:rgba(255,255,255,.025);
+      color:#bdbdc7;
+    }
+
+    .check{
+      width:28px;
+      height:28px;
+      display:grid;
+      place-items:center;
+      flex:0 0 28px;
+      border-radius:8px;
+      background:rgba(124,92,255,.15);
+      color:#c1b5ff;
+    }
+
+    .social-grid{
+      margin-top:48px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .social{
+      min-height:195px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:11px;
+      border-radius:22px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.025);
+      transition:.3s ease;
+    }
+
+    .social:hover{
+      transform:translateY(-8px) scale(1.02);
+      border-color:rgba(165,140,255,.30);
+      background:rgba(255,255,255,.045);
+    }
+
+    .social-icon{
+      width:60px;
+      height:60px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:rgba(255,255,255,.06);
+      font-size:27px;
+    }
+
+    .social h3{
+      font-family:"Space Grotesk",sans-serif;
+      font-size:21px;
+    }
+
+    .social p{
+      color:#90909d;
+      font-size:13px;
+    }
+
+    footer{
+      padding:38px 0;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    .footer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      color:#777784;
+      font-size:13px;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(30px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    #toast{
+      position:fixed;
+      left:50%;
+      bottom:25px;
+      z-index:5000;
+      transform:translate(-50%,100px);
+      opacity:0;
+      padding:14px 20px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(15,15,22,.95);
+      backdrop-filter:blur(18px);
+      font-size:13px;
+      font-weight:800;
+      transition:.35s ease;
+    }
+
+    #toast.show{
+      transform:translate(-50%,0);
+      opacity:1;
+    }
+
+    @media (max-width:900px){
+      .nav-links a:not(.nav-download){
+        display:none;
+      }
+
+      .hero-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .hero p{
+        margin-inline:auto;
+      }
+
+      .buttons{
+        justify-content:center;
+      }
+
+      .hero-art{
+        margin-top:35px;
+      }
+
+      .download-card{
+        grid-template-columns:1fr;
+      }
+
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:650px){
+      .logo{
+        font-size:28px;
+      }
+
+      .nav-download{
+        padding:10px 14px;
+      }
+
+      .hero h1{
+        font-size:58px;
+      }
+
+      .hero-art{
+        min-height:340px;
+      }
+
+      .logo-card{
+        width:260px;
+        height:260px;
+      }
+
+      .big-z{
+        font-size:120px;
+      }
+
+      .orbit{
+        width:310px;
+        height:310px;
+      }
+
+      .orbit.small{
+        width:230px;
+        height:230px;
+      }
+
+      .download-card{
+        padding:25px;
+      }
+
+      .social-grid{
+        grid-template-columns:1fr;
+      }
+
+      .footer{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      #cursorGlow{
+        display:none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cursorGlow"></div>
+
+  <header id="header">
+    <div class="container nav">
+      <a href="#home" class="logo">ZAIN <span>CC</span></a>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#download">Latest</a>
+        <a href="#updates">Updates</a>
+        <a href="#socials">Socials</a>
+        <a href="#download" class="nav-download">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-watermark">ZAIN</div>
+
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">
+            <span class="dot"></span>
+            LATEST RELEASE AVAILABLE
+          </div>
+
+          <h1>
+            EDIT.<br>
+            <span class="gradient-text">CREATE.</span><br>
+            REPEAT.
+          </h1>
+
+          <p>
+            Welcome to <strong>ZAIN CC</strong>. Get the latest editing resources
+            and monthly updates by <strong>@legend_ffx2</strong>.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="#download">GET LATEST VERSION ↓</a>
+            <a class="btn btn-secondary" href="#updates">WHAT'S NEW?</a>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="orbit"></div>
+          <div class="orbit small"></div>
+
+          <div class="logo-card">
+            <div class="big-z">Z</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">
+            <span class="dot"></span>
+            DOWNLOAD
+          </div>
+
+          <h2 class="section-title">Latest<br>Release.</h2>
+
+          <p class="section-text">
+            Download the newest ZAIN CC release. Update the file and month whenever
+            you publish a new version.
+          </p>
+        </div>
+
+        <div class="download-card reveal">
+          <div>
+            <div class="status">
+              <span class="dot"></span>
+              CURRENT VERSION
+            </div>
+
+            <h3 id="releaseMonth">August 2026</h3>
+
+            <div class="tags">
+              <span class="tag" id="versionTag">Version 1.0</span>
+              <span class="tag">Latest Release</span>
+              <span class="tag">FREE</span>
+            </div>
+
+            <p class="download-desc">
+              Click the download button to get the latest file.
+            </p>
+          </div>
+
+          <div class="download-side">
+            <small>LATEST VERSION</small>
+            <div class="version" id="versionNumber">V1.0</div>
+
+            <button class="download-button" id="downloadButton">
+              DOWNLOAD NOW ↓
+            </button>
+
+            <div class="free">100% FREE • NO SIGN-UP</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="updates">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">
+            <span class="dot"></span>
+            CHANGELOG
+          </div>
+
+          <h2 class="section-title">What's<br>New?</h2>
+
+          <p class="section-text">
+            See what changed in the newest ZAIN CC release.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card reveal">
+            <div class="status">
+              <span class="dot"></span>
+              CURRENT
+            </div>
+
+            <h3 id="updateMonth">August 2026</h3>
+
+            <p>
+              This is the newest available release. New updates can be added here every month.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="section-label">VERSION CHANGES</div>
+            <div class="changes" id="changes"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="socials">
+      <div class="container">
+        <div class="reveal" style="text-align:center;">
+          <div class="section-label">
+            <span class="dot"></span>
+            FOLLOW ME
+          </div>
+
+          <h2 class="section-title">Find ZAIN<br>Everywhere.</h2>
+
+          <p class="section-text" style="margin-inline:auto;">
+            Follow <strong style="color:white;">@legend_ffx2</strong> for edits,
+            tutorials and updates.
+          </p>
+        </div>
+
+        <div class="social-grid">
+          <a href="https://youtube.com/@legend_ffx2" target="_blank" rel="noopener" class="social reveal">
+            <div class="social-icon">▶</div>
+            <h3>YouTube</h3>
+            <p>@legend_ffx2</p>
+          </a>
+
+          <a href="https://instagram.com/legend_ffx2" target="_blank" rel="noopener" class="social reveal">
+            <div class="social-icon">◎</div>
+            <h3>Instagram</h3>
+            <p>@legend_ffx2</p>
+          </a>
+
+          <a href="https://www.tiktok.com/@legend_ffx2" target="_blank" rel="noopener" class="social reveal">
+            <div class="social-icon">♪</div>
+            <h3>TikTok</h3>
+            <p>@legend_ffx2</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="card reveal" style="text-align:center;padding:70px 25px;">
+          <h2 class="section-title">
+            Ready to<br>
+            <span class="gradient-text">Start Editing?</span>
+          </h2>
+
+          <p class="section-text" style="margin-inline:auto;">
+            Get the latest ZAIN CC release and stay connected with @legend_ffx2.
+          </p>
+
+          <div class="buttons" style="justify-content:center;">
+            <a class="btn btn-primary" href="#download">GET LATEST VERSION ↓</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer">
+      <strong style="color:white;">ZAIN <span style="color:#a58cff;">CC</span></strong>
+      <div>© <span id="year"></span> ZAIN CC</div>
+      <div>@legend_ffx2</div>
+    </div>
+  </footer>
+
+  <div id="toast">Download starting...</div>
+
+  <script>
+    // =========================================================
+    // ONLY EDIT THIS SMALL SECTION EACH MONTH
+    // =========================================================
+
+    const releaseData = {
+      month: "August 2026",
+      version: "1.0",
+
+      // Put your own file in a folder called "files"
+      // Example:
+      // ZAIN-CC/
+      //   capcut.html
+      //   files/
+      //     my-file.zip
+      //
+      // Then use:
+      // file: "files/my-file.zip"
+
+      file: "files/capcutpro.apk",
+
+      changes: [
+        "Latest files added",
+        "New editing resources",
+        "Performance improvements",
+        "Minor fixes"
+      ]
+    };
+
+    // =========================================================
+    // WEBSITE CODE - NO NEED TO EDIT BELOW THIS LINE
+    // =========================================================
+
+    const releaseMonth = document.getElementById("releaseMonth");
+    const updateMonth = document.getElementById("updateMonth");
+    const versionTag = document.getElementById("versionTag");
+    const versionNumber = document.getElementById("versionNumber");
+    const changes = document.getElementById("changes");
+    const downloadButton = document.getElementById("downloadButton");
+    const toast = document.getElementById("toast");
+    const header = document.getElementById("header");
+    const cursorGlow = document.getElementById("cursorGlow");
+
+    releaseMonth.textContent = releaseData.month;
+    updateMonth.textContent = releaseData.month;
+    versionTag.textContent = "Version " + releaseData.version;
+    versionNumber.textContent = "V" + releaseData.version;
+
+    changes.innerHTML = "";
+
+    releaseData.changes.forEach(function(item){
+      const row = document.createElement("div");
+      row.className = "change";
+      row.innerHTML = '<div class="check">✓</div><span></span>';
+      row.querySelector("span").textContent = item;
+      changes.appendChild(row);
+    });
+
+    function showToast(message){
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      setTimeout(function(){
+        toast.classList.remove("show");
+      }, 2200);
+    }
+
+    downloadButton.addEventListener("click", function(){
+      if(!releaseData.file || releaseData.file === "#"){
+        showToast("No file added yet.");
+        return;
+      }
+
+      const link = document.createElement("a");
+      link.href = releaseData.file;
+      link.download = "";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      showToast("Download starting...");
+    });
+
+    window.addEventListener("scroll", function(){
+      if(window.scrollY > 25){
+        header.classList.add("scrolled");
+      }else{
+        header.classList.remove("scrolled");
+      }
+    });
+
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    revealItems.forEach(function(item){
+      observer.observe(item);
+    });
+
+    document.addEventListener("mousemove", function(event){
+      cursorGlow.style.left = event.clientX + "px";
+      cursorGlow.style.top = event.clientY + "px";
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
